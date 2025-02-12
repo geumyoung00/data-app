@@ -1,0 +1,158 @@
+@use 'var';
+
+.header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 9rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    padding: 0 4rem;
+    color: var.$colorBlack;
+
+    h1 {
+        font-size: 2.6rem;
+        line-height: 1;
+
+        a,
+        a:visited {
+            color: inherit;
+        }
+    }
+
+    ol {
+        display: flex;
+        flex-flow: row wrap;
+        column-gap: 24px;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+
+
+        li {
+            font-size: 1.6rem;
+            line-height: 140%;
+            position: relative;
+
+            &.not-token {
+                display: flex;
+                align-items: center;
+
+                p {
+                    margin-left: .8rem;
+                    font-weight: 600;
+                    line-height: 1.2;
+                }
+            }
+
+            &.new::after {
+                display: block;
+                content: '';
+                width: 12px;
+                height: 12px;
+                background: var.$colorPrimary;
+                border-radius: 50%;
+                position: absolute;
+                top: 2px;
+                right: -1px;
+                z-index: 5;
+            }
+
+            &.auth {
+                width: 18rem;
+                height: 4.2rem;
+            }
+
+            .menu-btn {
+                font-size: inherit;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: var.$colorGray1;
+                font-weight: 600;
+                width: 4rem;
+                height: 4rem;
+                overflow: hidden;
+                position: relative;
+                z-index: 1;
+                border: 1px solid var.$colorGray3;
+                border-radius: 50%;
+
+                &::before {
+                    @include var.center;
+
+                    display: block;
+                    content: '';
+                    width: 0%;
+                    height: 0%;
+                    background: rgba(255, 255, 255, .7);
+                    border-radius: 50%;
+                    transition: ease .3s;
+                    z-index: -1;
+                }
+
+                &:hover {
+                    color: var.$colorBlack;
+                }
+
+                &:hover::before {
+                    width: 140%;
+                    height: 140%;
+                }
+
+                &:hover i svg {
+                    fill: var.$colorBlack;
+                }
+
+                i {
+                    width: 1.8rem;
+                    height: 1.8rem;
+                }
+
+                i svg {
+                    fill: var.$colorGray1;
+                }
+
+                p.hide {
+                    @include var.hide;
+                }
+            }
+
+            &.auth .menu-btn {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                height: auto;
+                padding: 1rem .8rem 1rem 1.6rem;
+                border-radius: 2px;
+
+                i {
+                    width: 2.2rem;
+                    height: 2.2rem;
+                    padding: .3rem;
+                    box-sizing: border-box;
+                }
+
+                i svg {
+                    width: 100%;
+                    height: 100%;
+                    fill: none;
+                }
+
+                i svg path {
+                    stroke: var.$colorGray1;
+                }
+
+                &:hover i svg {
+                    fill: none;
+                }
+
+                &:hover i svg path {
+                    stroke: var.$colorBlack;
+                }
+            }
+        }
+    }
+}

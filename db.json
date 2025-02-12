@@ -1,0 +1,468 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "name": "admin",
+      "userId": "admin1",
+      "password": "111qqq",
+      "level": "admin",
+      "auth": true
+    },
+    {
+      "id": 2,
+      "name": "user_able",
+      "userId": "user1",
+      "password": "222www",
+      "level": "basic",
+      "auth": true
+    },
+    {
+      "id": 3,
+      "name": "user_disable",
+      "userId": "user2",
+      "password": "333eee",
+      "level": "basic",
+      "auth": false
+    }
+  ],
+  "agencies": [
+    {
+      "id": "khoa",
+      "name": "국립해양조사원"
+    },
+    {
+      "id": "kma",
+      "name": "기상청"
+    },
+    {
+      "id": "nosc",
+      "name": "국립해양위성센터"
+    }
+  ],
+  "collectItems": [
+    {
+      "id": "tidal",
+      "name": "실시간 조위"
+    },
+    {
+      "id": "wind",
+      "name": "풍향/풍속"
+    },
+    {
+      "id": "atm",
+      "name": "기압"
+    },
+    {
+      "id": "GOCIL1B",
+      "name": "GOCI-II L1B 위성 영상"
+    },
+    {
+      "id": "warning",
+      "name": "기상특보"
+    }
+  ],
+  "settings": [
+    {
+      "id": 2,
+      "agency": "khoa",
+      "collectItem": "풍향/풍속",
+      "scheduleType": "weekly",
+      "schedule": {
+        "hour": "02",
+        "minutes": "25",
+        "weeks": ["mon", "thu"]
+      },
+      "root": "/data/khoa/wind/",
+      "collectType": "api",
+      "collectTypeInfo": {
+        "apiKey": "zxcv1234",
+        "apiUrl": "/abc/123",
+        "apiExperiod": "1year",
+        "apiPrmt": [
+          {
+            "key": "one",
+            "value": "value one"
+          },
+          {
+            "key": "two",
+            "value": "value two"
+          },
+          {
+            "key": "three",
+            "value": "three"
+          }
+        ]
+      },
+      "isUsed": true
+    },
+    {
+      "id": 3,
+      "agency": "kma",
+      "collectItem": "기압",
+      "scheduleType": "day",
+      "schedule": {
+        "date": "2024-09-24",
+        "hour": "02",
+        "minutes": "35"
+      },
+      "root": "/data/kma/press/",
+      "collectType": "api",
+      "collectTypeInfo": {
+        "apiKey": "zxcv1234",
+        "apiUrl": "/abc/123",
+        "apiExperiod": "1year",
+        "apiPrmt": [
+          {
+            "key": "one",
+            "value": "value one"
+          },
+          {
+            "key": "two",
+            "value": "value two"
+          },
+          {
+            "key": "three",
+            "value": "value three"
+          }
+        ]
+      },
+      "isUsed": true
+    },
+    {
+      "id": 4,
+      "agency": "nosc",
+      "collectItem": "GOCI-II L1B 위성 영상",
+      "scheduleType": "period",
+      "schedule": {
+        "date": "2024-04-01",
+        "endDate": "2024-07-30",
+        "weeks": ["tue", "sat"],
+        "hour": "20",
+        "minutes": "05"
+      },
+      "root": "/data/nosc/GOCI-II",
+      "collectType": "api",
+      "collectTypeInfo": {
+        "apiKey": "zxcv1234",
+        "apiUrl": "/abc/123",
+        "apiExperiod": "1year",
+        "apiPrmt": [
+          {
+            "key": "one",
+            "value": "value one"
+          },
+          {
+            "key": "two",
+            "value": "value two"
+          },
+          {
+            "key": "three",
+            "value": "value three"
+          }
+        ]
+      },
+      "isUsed": false
+    },
+    {
+      "id": 5,
+      "agency": "kma",
+      "collectItem": "기상특보",
+      "scheduleType": "period",
+      "schedule": {
+        "date": "2024-04-01",
+        "endDate": "2024-07-30",
+        "hour": "02",
+        "minutes": "15"
+      },
+      "root": "/data/kma/wth",
+      "collectType": "api",
+      "collectTypeInfo": {
+        "apiKey": "zxcv1234",
+        "apiUrl": "/abc/123",
+        "apiExperiod": "1year",
+        "apiPrmt": [
+          {
+            "key": "one",
+            "value": "value one"
+          },
+          {
+            "key": "two",
+            "value": "value two"
+          },
+          {
+            "key": "three",
+            "value": "value three"
+          }
+        ]
+      },
+      "isUsed": false
+    },
+    {
+      "id": 6,
+      "agency": "khoa",
+      "collectItem": "기압",
+      "scheduleType": "daily",
+      "schedule": {
+        "hour": "20",
+        "minutes": "50"
+      },
+      "root": "/data/khoa/tide/",
+      "collectType": "api",
+      "collectTypeInfo": {
+        "apiKey": "zxcv1234",
+        "apiUrl": "/abc/123",
+        "apiExperiod": "1year",
+        "apiPrmt": [
+          {
+            "key": "one",
+            "value": "value one"
+          },
+          {
+            "key": "two",
+            "value": "value two"
+          },
+          {
+            "key": "three",
+            "value": "value three"
+          }
+        ]
+      },
+      "isUsed": true
+    },
+    {
+      "id": 7,
+      "agency": "khoa",
+      "collectItem": "기압",
+      "scheduleType": "daily",
+      "schedule": {
+        "hour": "13",
+        "minutes": "15"
+      },
+      "root": "/data/khoa/tide/",
+      "collectType": "api",
+      "collectTypeInfo": {
+        "apiKey": "zxcv1234",
+        "apiUrl": "/abc/123",
+        "apiExperiod": "1year",
+        "apiPrmt": [
+          {
+            "key": "one",
+            "value": "value one"
+          },
+          {
+            "key": "two",
+            "value": "value two"
+          },
+          {
+            "key": "three",
+            "value": "value three"
+          }
+        ]
+      },
+      "isUsed": true
+    },
+    {
+      "id": 8,
+      "agency": "khoa",
+      "collectItem": "풍향/풍속",
+      "scheduleType": "weekly",
+      "schedule": {
+        "hour": "13",
+        "minutes": "15",
+        "weeks": ["mon", "thu"]
+      },
+      "root": "/data/khoa/wind/",
+      "collectType": "api",
+      "collectTypeInfo": {
+        "apiKey": "zxcv1234",
+        "apiUrl": "/abc/123",
+        "apiExperiod": "1year",
+        "apiPrmt": [
+          {
+            "key": "one",
+            "value": "value one"
+          },
+          {
+            "key": "two",
+            "value": "value two"
+          },
+          {
+            "key": "three",
+            "value": "value three"
+          }
+        ]
+      },
+      "isUsed": false
+    }
+  ],
+  "data": [
+    {
+      "id": 1,
+      "settingId": 6,
+      "agency": "khoa",
+      "collectItem": "실시간 조위",
+      "root": "/data/khoa/tide/",
+      "collectType": "api",
+      "date": "2024-09-12",
+      "time": "11:45:00",
+      "state": "collecting",
+      "log": null
+    },
+    {
+      "id": 2,
+      "settingId": 4,
+      "agency": "khoa",
+      "collectItem": "풍향/풍속",
+      "root": "/data/khoa/wind/",
+      "collectType": "api",
+      "date": "2024-09-13",
+      "time": "11:45:00",
+      "state": "success",
+      "log": "success Log Data"
+    },
+    {
+      "id": 3,
+      "settingId": 3,
+      "agency": "kma",
+      "collectItem": "기압",
+      "root": "/data/kma/press/",
+      "collectType": "api",
+      "date": "2024-09-14",
+      "time": "17:30:00",
+      "state": "faild",
+      "log": "faild Log Data"
+    },
+    {
+      "id": 6,
+      "settingId": 6,
+      "agency": "khoa",
+      "collectItem": "실시간 조위",
+      "root": "/data/khoa/tide/",
+      "collectType": "api",
+      "date": "2024-09-16",
+      "time": "09:00:00",
+      "state": "collecting",
+      "log": null
+    },
+    {
+      "id": 7,
+      "settingId": 4,
+      "agency": "khoa",
+      "collectItem": "풍향/풍속",
+      "root": "/data/khoa/wind/",
+      "collectType": "api",
+      "date": "2024-09-16",
+      "time": "11:45:00",
+      "state": "success",
+      "log": "success Log Data"
+    },
+    {
+      "id": 8,
+      "settingId": 3,
+      "agency": "kma",
+      "collectItem": "기압",
+      "root": "/data/kma/press/",
+      "collectType": "api",
+      "date": "2024-09-19",
+      "time": "17:30:00",
+      "state": "faild",
+      "log": "faild Log Data"
+    },
+    {
+      "id": 9,
+      "settingId": 3,
+      "agency": "kma",
+      "collectItem": "기압",
+      "root": "/data/kma/press/",
+      "collectType": "api",
+      "date": "2024-09-19",
+      "time": "17:30:00",
+      "state": "faild",
+      "log": "faild Log Data"
+    },
+    {
+      "id": 10,
+      "settingId": 6,
+      "agency": "khoa",
+      "collectItem": "실시간 조위",
+      "root": "/data/khoa/tide/",
+      "collectType": "api",
+      "date": "2024-09-20",
+      "time": "09:00:00",
+      "state": "collecting",
+      "log": null
+    },
+    {
+      "id": 11,
+      "settingId": 4,
+      "agency": "khoa",
+      "collectItem": "풍향/풍속",
+      "root": "/data/khoa/wind/",
+      "collectType": "api",
+      "date": "2024-09-21",
+      "time": "11:45:00",
+      "state": "success",
+      "log": "success Log Data"
+    },
+    {
+      "id": 12,
+      "settingId": 3,
+      "agency": "kma",
+      "collectItem": "기압",
+      "root": "/data/kma/press/",
+      "collectType": "api",
+      "date": "2024-09-21",
+      "time": "17:30:00",
+      "state": "faild",
+      "log": "faild Log Data"
+    },
+    {
+      "id": 13,
+      "settingId": 3,
+      "agency": "kma",
+      "collectItem": "기압",
+      "root": "/data/kma/press/",
+      "collectType": "api",
+      "date": "2024-09-21",
+      "time": "17:30:00",
+      "state": "faild",
+      "log": "faild Log Data"
+    },
+    {
+      "id": 14,
+      "settingId": 6,
+      "agency": "khoa",
+      "collectItem": "실시간 조위",
+      "root": "/data/khoa/tide/",
+      "collectType": "api",
+      "date": "2024-09-22",
+      "time": "09:00:00",
+      "state": "collecting",
+      "log": null
+    },
+    {
+      "id": 15,
+      "settingId": 4,
+      "agency": "khoa",
+      "collectItem": "풍향/풍속",
+      "root": "/data/khoa/wind/",
+      "collectType": "api",
+      "date": "2024-09-24",
+      "time": "11:45:00",
+      "state": "success",
+      "log": "success Log Data"
+    },
+    {
+      "id": 16,
+      "settingId": 3,
+      "agency": "kma",
+      "collectItem": "기압",
+      "root": "/data/kma/press/",
+      "collectType": "api",
+      "date": "2024-09-24",
+      "time": "17:30:00",
+      "state": "faild",
+      "log": "faild Log Data"
+    }
+  ]
+}

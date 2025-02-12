@@ -1,0 +1,305 @@
+@use 'var';
+
+body {
+    background: var.$colorBg;
+}
+
+.contain {
+    width: 100%;
+    min-height: calc(100vh - 9rem);
+    padding: 0 4rem 6.4rem;
+    box-sizing: border-box;
+    font-size: 1.6rem;
+
+    //임시
+    &.login {
+        padding: 6rem;
+        text-align: center;
+        font-size: 2.4rem;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        grid-row-gap: 6rem;
+
+        a {
+            display: block;
+            background: var.$colorPrimary;
+            color: #fff;
+            width: fit-content;
+            padding: 3rem;
+
+            &:last-child {
+                background: var.$colorRed;
+            }
+        }
+    }
+}
+
+.filter-bar {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: center;
+    grid-column-gap: 2.4rem;
+    box-sizing: border-box;
+    color: var.$colorBlack;
+
+    @include var.floatBox;
+
+    li {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 1.6rem;
+        grid-column-gap: 1.6rem;
+
+        label,
+        .label {
+            margin: 0 2.4rem;
+            font-weight: 800;
+        }
+
+        &:first-child label {
+            margin-left: 0;
+        }
+
+        &.last {
+            margin: auto auto;
+            margin-right: 0;
+        }
+    }
+}
+
+.charts {
+    @include var.floatBox;
+    padding: 4rem;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    grid-column-gap: 2.4rem;
+    box-sizing: border-box;
+
+    .graph-wrap {
+        flex-basis: auto;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .graph {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            height: 30rem;
+            margin-bottom: 4.8rem;
+            box-sizing: border-box;
+            padding: 0 1rem;
+            position: relative;
+
+            .contents {
+                width: 100%;
+                height: 30rem;
+                background: var.$colorPrimary;
+                box-sizing: border-box;
+            }
+        }
+
+        h3 {
+            font-size: 2rem;
+            line-height: 1.4;
+            font-weight: 700;
+            color: var.$colorBlack;
+            margin-bottom: 1.6rem;
+        }
+
+        ol {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-content: center;
+            grid-column-gap: 3.2rem;
+            padding: 1.6rem 0;
+
+            li {
+                font-size: 1.6rem;
+                font-weight: 700;
+                line-height: 1.4;
+                width: 8.8rem;
+                color: var.$colorBlack;
+                position: relative;
+
+                .count {
+                    font-size: 2.6rem;
+                    font-weight: 700;
+                    line-height: 1;
+                    margin-bottom: .8rem;
+                }
+
+                &.success .count {
+                    color: var.$colorGreen;
+                }
+
+                &.faild .count {
+                    color: var.$colorRed;
+                }
+
+                &.pending .count {
+                    color: var.$colorPrimary;
+                }
+            }
+
+            li+li::before {
+                display: block;
+                content: '';
+                width: 1px;
+                height: 100%;
+                background: var.$colorBlack;
+
+                @include var.vCenter;
+                left: -1.6rem;
+            }
+        }
+    }
+}
+
+.logbox {
+    border: 1px solid var.$colorGray3;
+    border-radius: 2px;
+    padding: 1.6rem;
+
+    textarea {
+        width: 100%;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        overflow: hidden;
+        resize: none;
+
+        &:focus-visible {
+            outline-offset: max(2px, 0.1em);
+            outline: max(2px, 0.1em) dotted var.$colorGray3;
+        }
+    }
+}
+
+.data-info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    color: var.$colorBlack;
+    @include floatBox(2.4rem);
+
+    dl {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-content: center;
+        align-items: center;
+        width: 100%;
+        min-height: 5.6rem;
+        border-bottom: 1px solid var.$colorGray3;
+
+        &:nth-child(-n + 4) {
+            border-top: 1px solid var.$colorGray3;
+        }
+
+        dt,
+        dd {
+            padding: 0 1.6rem;
+            box-sizing: border-box;
+        }
+
+        dt {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 120px;
+            height: 100%;
+            font-weight: 600;
+            background: var.$colorBg;
+        }
+
+        dd {
+            width: calc(100% - 120px);
+            line-height: 1.2;
+        }
+    }
+
+    .logbox {
+        grid-column: 1/5;
+        margin-top: 1.6rem;
+    }
+
+    .btn {
+        grid-column: 1 / 5;
+        margin: 2.4rem auto .8rem;
+    }
+}
+
+.tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    width: 7.6rem;
+    height: 3.2rem;
+    position: relative;
+    border-radius: 50px;
+    overflow: hidden;
+    border: 1px solid var.$colorGreen;
+    color: var.$colorGreen;
+    box-sizing: border-box;
+
+    span {
+        margin-top: 2px;
+    }
+
+    &::before {
+        display: block;
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        opacity: .1;
+        background: var.$colorGreen;
+
+        @include var.center;
+    }
+
+    &.faild {
+        border-color: var.$colorRed;
+        color: var.$colorRed;
+    }
+
+    &.faild::before {
+        background: var.$colorRed;
+    }
+
+    &.collecting {
+        border-color: var.$colorPrimary;
+        color: var.$colorPrimary;
+    }
+
+    &.collecting::before {
+        background: var.$colorPrimary;
+    }
+
+    &.stop,
+    &.pending {
+        border-color: var.$colorGray1;
+        color: var.$colorGray1;
+    }
+
+    &.stop::before,
+    &.pending::before {
+        background: var.$colorGray1;
+    }
+}

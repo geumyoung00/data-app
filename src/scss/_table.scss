@@ -1,0 +1,159 @@
+@use 'var';
+
+.table {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 1.4;
+
+    .hide {
+        @include var.hide;
+    }
+
+    .top {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        font-size: 1.4rem;
+        font-weight: 600;
+        padding: .8rem 0;
+
+        legend {
+            color: var.$colorGray1;
+
+            span {
+                color: var.$colorBlack;
+            }
+        }
+
+        .view-select {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin: auto auto;
+            margin-right: 0;
+
+            .select {
+                margin-right: .8rem;
+                background: var.$colorWhite;
+            }
+        }
+    }
+
+    table {
+        width: 100%;
+        color: var.$colorBlack;
+        margin-bottom: 1.6rem;
+        text-align: center;
+
+        thead {
+            border-top: 1px solid var.$colorGray2;
+
+            th {
+                font-weight: 700;
+                height: 4.6rem;
+                vertical-align: middle;
+                border-bottom: 1px solid var.$colorGray2;
+            }
+
+        }
+
+        tbody {
+            background: var.$colorWhite;
+
+            td {
+                vertical-align: middle;
+                font-weight: 500;
+                padding: 1.6rem 1rem;
+                max-width: 200px;
+                word-wrap: break-word;
+                word-break: keep-all;
+
+                .input-text.min {
+                    width: calc(100% - 1.2rem);
+                    text-indent: 0;
+                    margin: 0 auto;
+                }
+
+                &.center {
+                    &:has(input[type='text']) {
+                        display: flex;
+                        flex-flow: row wrap;
+                        justify-content: flex-start;
+                        align-items: center;
+
+                        label {
+                            margin-left: 0;
+                            width: 1.2rem;
+                        }
+                    }
+
+                    text-align: left;
+                    text-indent: 1.2rem;
+                }
+
+                .input-text {
+                    border: 1px solid transparent;
+                    transition: ease .1s all;
+
+                    input[type=text]:disabled {
+                        background: #fff;
+                    }
+
+                    &:has(:not(input[type=text]:disabled)) {
+                        border-color: var.$colorGray3;
+                    }
+
+                }
+
+                &:has(.tag) {
+                    .tag {
+                        margin: 0 auto;
+                    }
+                }
+            }
+
+            tr {
+                border-bottom: 1px solid var.$colorGray2;
+
+                &:first-child .input-text.inner {
+                    border-color: var.$colorGray3;
+                }
+            }
+        }
+    }
+
+    .btn-group {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        grid-column-gap: 1.2rem;
+        position: relative;
+
+        &.in-modal {
+            justify-content: flex-start;
+
+            .btn {
+                padding: 0 12px;
+                height: 3.2rem;
+                font-size: 1.4rem;
+                font-weight: 600;
+                letter-spacing: 0.4px;
+            }
+
+            .btn:last-child {
+                display: none;
+            }
+        }
+
+        .btn {
+            margin: 0;
+        }
+    }
+
+    .btn {
+        margin: 0 auto;
+    }
+}

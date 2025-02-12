@@ -1,0 +1,190 @@
+@use '_var';
+
+@mixin hoverBg {
+    display: block;
+    content: '';
+    background: #000;
+    opacity: .2;
+    width: 0%;
+    height: 0%;
+    border-radius: 50%;
+    @include var.center;
+    transition: ease .3s;
+}
+
+@mixin icon($size: 1.4rem) {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    width: $size;
+    height: $size;
+    fill: var.$colorWhite;
+    position: relative;
+    z-index: 1;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: 4.2rem;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    font-weight: 500;
+    padding: 0 2.4rem;
+    box-sizing: border-box;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    background: var.$colorPrimary;
+    color: var.$colorWhite;
+
+    span {
+        display: block;
+        z-index: 1;
+        margin-top: 2px;
+    }
+
+    i {
+        display: none;
+    }
+
+    &::after {
+        @include hoverBg;
+    }
+
+    &:hover::after {
+        width: 140%;
+        height: 140%;
+    }
+
+    &.secondary {
+        background: var.$colorGray2;
+    }
+
+    &.tertiary {
+        background: var.$colorRed;
+    }
+
+    &.disabled {
+        background: var.$colorBg;
+        color: var.$colorGray3;
+    }
+
+    &.disabled:hover {
+        cursor: not-allowed;
+    }
+
+    &.disabled:hover::after {
+        display: none;
+    }
+
+    &.line {
+        background: transparent;
+        border: 1px solid var.$colorPrimary;
+        color: var.$colorPrimary;
+        font-weight: 700;
+
+        &::after {
+            background: var.$colorPrimary;
+            opacity: .1;
+        }
+
+        &.secondary {
+            border-color: var.$colorGray2;
+            color: var.$colorGray2;
+
+            &::after {
+                background: var.$colorGray2;
+            }
+        }
+
+        &.tertiary {
+            border-color: var.$colorRed;
+            color: var.$colorRed;
+
+            &::after {
+                background: var.$colorRed;
+            }
+        }
+
+        &.disabled {
+            border-color: var.$colorGray3;
+            background: var.$colorBg;
+            color: var.$colorGray3;
+        }
+
+    }
+
+    &.icon-with {
+        flex-direction: row-reverse;
+        padding: 0 1.6rem;
+
+        i {
+            @include icon;
+            margin-right: .8rem;
+
+            svg {
+                width: 100%;
+                height: 100%;
+                fill: var.$colorPrimary;
+
+                .secondary & {
+                    fill: var.$colorGray2;
+                }
+
+                .tertiary & {
+                    fill: var.$colorRed;
+                }
+
+                .disabled & {
+                    fill: var.$colorGray3;
+                }
+            }
+        }
+
+
+    }
+
+    &.icon-only {
+        padding: 0;
+        width: 4.2rem;
+    }
+
+    &.icon-only span {
+        text-indent: -9999px;
+    }
+
+    &.icon-only i {
+        @include icon;
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &.icon-only.disabled i svg {
+        fill: var.$colorGray3;
+    }
+
+    &.min {
+        padding: 0 12px;
+        height: 3.2rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+        letter-spacing: .4px;
+    }
+
+    &.min.icon-only {
+        width: 3.2rem;
+        padding: 0;
+
+        i {
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+    }
+}
