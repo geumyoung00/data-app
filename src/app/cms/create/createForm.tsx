@@ -1,7 +1,7 @@
 'use client';
 
 import { SelectChange } from '@/src/action/form/select-change';
-import { useCallback, useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { useFormState } from 'react-dom';
 import { scheduleType, useOption } from '@/src/db/date';
 import { settingFormHandler } from '@/src/action/setting-form-action';
@@ -29,24 +29,25 @@ export default function CreateSettingsForm() {
     errors: {},
   });
 
-  const pathnmae = usePathname();
+  const pathname = usePathname();
 
   const errors = formState?.errors;
   let formRefs = useRef<refsInterface[]>([]);
   const mngCtx = useContext(mngContext);
   const { agencies, collectItems } = mngCtx;
-  const fetchMngData = useCallback(async () => {
-    try {
-      await mngCtx.fetchItems('agencies');
-      await mngCtx.fetchItems('getDataType');
-    } catch (error) {
-      console.error('Failed to fetch items', error);
-    }
-  }, []);
 
   useEffect(() => {
+    const fetchMngData = async () => {
+      try {
+        await mngCtx.fetchItems('agencies');
+        await mngCtx.fetchItems('getDataType');
+      } catch (error) {
+        console.error('Failed to fetch items', error);
+      }
+    };
+
     fetchMngData();
-  }, [pathnmae]);
+  }, [pathname]);
 
   useEffect(() => {
     let errorsKey: string[] = [];

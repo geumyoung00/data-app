@@ -4,7 +4,7 @@ import { timeArr, minuteArr, weekArr } from '@/src/db/date';
 import Select from './select';
 import { ErrorsType } from '@/src/action/setting-schema';
 import { scheduleInfoType } from '@/src/db/settings';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type refsType = HTMLSelectElement | HTMLInputElement | HTMLDivElement;
 
@@ -42,16 +42,15 @@ export default function ScheduleForm({
 
   switch (type) {
     default:
+      //매주, 매일을 제외한 모든 경우
       break;
+
     case '1':
       // 매주
       return (
         <>
           <div className='schedule-form'>
-            <div
-              className='checkbox-group'
-              ref={(ref: HTMLDivElement) => formRefHandler('weeklyChecks', ref)}
-            >
+            <div className='checkbox-group' ref={(ref: HTMLDivElement) => formRefHandler('weeklyChecks', ref)}>
               {weekArr.map((item) => {
                 return (
                   <div className={`check`} key={item.id}>
@@ -79,9 +78,7 @@ export default function ScheduleForm({
                 id='hour'
                 ref={(ref: HTMLSelectElement) => formRefHandler('hour', ref)}
                 value={selectedHour}
-                onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                  setSelectedHour(e.target.value)
-                }
+                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setSelectedHour(e.target.value)}
               >
                 <option value='' hidden></option>
                 {timeArr.map((num) => {
@@ -100,9 +97,7 @@ export default function ScheduleForm({
                 id='minutes'
                 ref={(ref: HTMLSelectElement) => formRefHandler('minutes', ref)}
                 value={selectedMinutes}
-                onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                  setSelectedMinutes(e.target.value)
-                }
+                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setSelectedMinutes(e.target.value)}
               >
                 <option value='' hidden></option>
                 {minuteArr.map((num) => {
@@ -129,9 +124,7 @@ export default function ScheduleForm({
                 id='hour'
                 ref={(ref: HTMLSelectElement) => formRefHandler('hour', ref)}
                 value={selectedHour}
-                onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                  setSelectedHour(e.target.value)
-                }
+                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setSelectedHour(e.target.value)}
               >
                 <option value='' hidden></option>
                 {timeArr.map((num) => {
@@ -150,9 +143,7 @@ export default function ScheduleForm({
                 id='minutes'
                 ref={(ref: HTMLSelectElement) => formRefHandler('minutes', ref)}
                 value={selectedMinutes}
-                onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                  setSelectedMinutes(e.target.value)
-                }
+                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setSelectedMinutes(e.target.value)}
               >
                 <option value='' hidden></option>
                 {minuteArr.map((num) => {
